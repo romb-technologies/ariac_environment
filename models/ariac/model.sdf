@@ -1873,23 +1873,5 @@
     </link>
     <static>1</static>
     <allow_auto_disable>1</allow_auto_disable>
-    <include>
-      <uri>model://custom_hokuyo</uri>
-      <pose>0.07 0 0.3 0 0 0</pose>
-      <name>hokuyo_joint_front</name>
-    </include>
-    <joint name="hokuyo_joint_front" type="fixed">
-      <child>hokuyo::link</child>
-      <parent>chassis</parent>
-    </joint>
-    <include>
-      <uri>model://custom_hokuyo</uri>
-      <pose>-0.25 0 0.3 0 0 3.14</pose>
-      <name>hokuyo_joint_back</name>
-    </include>
-    <joint name="hokuyo_joint_back" type="fixed">
-      <child>hokuyo::link</child>
-      <parent>chassis</parent>
-    </joint>
   </model>
 </sdf>
