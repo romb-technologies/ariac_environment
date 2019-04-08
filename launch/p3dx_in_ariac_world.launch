@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <include file="$(find ariac_environment)/models/pioneer_sensor_model/launch/upload_pioneer3dx.xml"/>
+  <include file="$(find ariac_environment)/launch/upload_pioneer3dx.xml"/>
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
 	<param name="publish_frequency" type="double" value="30.0"/>

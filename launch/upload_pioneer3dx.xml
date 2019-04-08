@@ -1,0 +1,6 @@
+<launch>
+  <!-- send table.xml to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ariac_environment)/models/p3dx_with_sensors/pioneer3dx.xacro" />
+
+</launch>
+
