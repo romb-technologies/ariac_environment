@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find ariac_environment)/launch/upload_pioneer3dx.xml"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+	<param name="publish_frequency" type="double" value="30.0"/>
+	<param name="tf_prefix" type="string" value="pioneer"/>
+  </node>
+  
+  <include file="$(find ariac_environment)/launch/ariac_world.launch"/>
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model"
+        args="-x 9.7 -y 9.6 -urdf -param robot_description -model robot_description" respawn="false"/>
+
+  <!-- start gmapping node -->
+  <node name="start_gmapping" pkg="gmapping" type="slam_gmapping"
+        args="scan:=pioneer/front_laser _map_frame:=map _base_frame:=pioneer/base_link _odom_frame:=pioneer/odom" />
+
+  <!-- start rviz node -->
+  <node name="start_rviz" pkg="rviz" type="rviz" />
+
+  <!-- start teleop_twist_keyboard node -->
+  <node name="teleop_pioneer" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" />
+
+</launch>
