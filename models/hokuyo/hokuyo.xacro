@@ -25,8 +25,8 @@
 	      <horizontal>
 	        <samples>640</samples>
 	        <resolution>1</resolution>
-	        <min_angle>-1</min_angle>
-	        <max_angle>1</max_angle>
+	        <min_angle>-${scan_angle}</min_angle>
+	        <max_angle>${scan_angle}</max_angle>
 	      </horizontal>
 	    </scan>
 	    <range>
@@ -38,8 +38,9 @@
 	  
 	  <plugin name="${laser_name}" filename="libgazebo_ros_laser.so" >
 	    <always_on>true</always_on>
-	    <updateRate>0.0</updateRate>
+	    <updateRate>100.0</updateRate>
 	    <topicName>${publish_topic}</topicName>
+	    <frameName>${frame_id}</frameName>
 	  </plugin>
 	  <always_on>1</always_on>
 	  <update_rate>30</update_rate>
@@ -49,7 +50,7 @@
 
   <joint name="${laser_name}_joint" type="fixed">
 	<origin xyz="${xyz}" rpy="${rpy}"/>
-	<parent link="base_link"/>
+	<parent link="${parent_link}"/>
 	<child link="${laser_name}"/>
   </joint>
 
