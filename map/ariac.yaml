@@ -1,5 +1,5 @@
 free_thresh: 0.196
-image: cropped_ariac_map.pgm
+image: ariac.pgm
 negate: 0
 occupied_thresh: 0.65
 origin: [0.15000000000000568, -0.09999999999999432, 0.0]
