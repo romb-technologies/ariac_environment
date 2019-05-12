@@ -18,6 +18,15 @@ Launch the ARIAC world and spawn a P3-DX robot.
 roslaunch ariac_environment p3dx_in_ariac_world.launch
 ```
 
+## Development notes
 
+...adding navigation functionality ...
+
+### Naming conventions
+
+Launch file naming ...
+```
+<(gazebo environment name)>_<robot_type>_<(localization)>_<(control)>.launch
+```
 
 

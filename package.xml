@@ -26,6 +26,8 @@
 
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>p2os_urdf</exec_depend>
+  <exec_depend>fake_localization</exec_depend>
+  <exec_depend>teleop_twist_keyboard</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

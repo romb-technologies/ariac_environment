@@ -1,0 +1,7 @@
+<launch>
+  <arg name="config"/>
+
+  <!-- rviz for visualization and goal publishing-->
+  <node pkg="rviz" type="rviz" name="rviz"
+        args="-d $(find ariac_environment)/rviz/$(arg config).rviz"/>
+</launch>

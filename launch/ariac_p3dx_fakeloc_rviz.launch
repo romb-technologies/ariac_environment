@@ -1,0 +1,25 @@
+<launch>
+  <arg name="robot_name" default="pioneer"/>
+
+  <include file="$(find ariac_environment)/launch/ariac_p3dx.launch"/>
+
+  <!-- Get fake localization data as a transform -->
+  <group ns="$(arg robot_name)">
+    <node pkg="fake_localization" type="fake_localization" name="fakeloc">
+      <param name="odom_frame_id" value="$(arg robot_name)/odom"/>
+      <param name="global_frame_id" value="$(arg robot_name)/map"/>
+      <param name="base_frame_id" value="$(arg robot_name)/base_link"/>
+      <remap from="base_pose_ground_truth" to="odom"/>
+    </node>
+
+    <node pkg="map_server" type="map_server" name="map_server"
+          args="$(find ariac_environment)/maps/ariac.yaml">
+      <param name="frame_id" value="$(arg robot_name)/map"/>
+    </node>
+  </group>
+
+  <include file="$(find ariac_environment)/launch/rviz.launch">
+    <arg name="config" value="localization"/>
+  </include>
+
+</launch>

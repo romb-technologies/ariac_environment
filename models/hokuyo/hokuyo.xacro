@@ -13,7 +13,7 @@
 	</inertial>
 	<visual name="visual">
 	  <geometry>
-	    <mesh filename="model://hokuyo/meshes/hokuyo.dae"/>
+	    <mesh filename="package://ariac_environment/models/hokuyo/meshes/hokuyo.dae"/>
 	  </geometry>
 	</visual>
   </link>
