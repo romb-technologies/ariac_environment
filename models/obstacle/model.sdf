@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <!-- An obstacle -->
+  <model name="obstacle">
+    <pose>11 11 1.25 0 0 0</pose>
+    <link name="link_obstacle">
+      <gravity>false</gravity>
+      <collision name="collision_obstacle">
+        <geometry>
+          <mesh>
+            <uri>model://obstacle/meshes/actor.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual_obstacle">
+        <geometry>
+          <mesh>
+            <uri>model://obstacle/meshes/actor.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

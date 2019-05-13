@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <sdf version='1.6'>
   <world name='default'>
    <light name='sun' type='directional'>
@@ -223,5 +224,8 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <include>       
+      <uri>model://obstacle</uri>
+    </include>
   </world>
 </sdf>

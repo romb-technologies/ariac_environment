@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find ariac_environment)/launch/upload_pioneer3dx.xml"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+	<param name="publish_frequency" type="double" value="30.0"/>
+	<param name="tf_prefix" type="string" value="pioneer"/>
+  </node>
+
+  <node name="run_move_obstacle" pkg="ariac_environment" type="move_obstacle.py"
+  	args="11.0 13.0 11.0 7.0 0.1"/>
+  
+  <include file="$(find ariac_environment)/launch/ariac_world.launch"/>
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model"
+        args="-x 9.7 -y 9.6 -urdf -param robot_description -model robot_description" respawn="false" output="screen" />
+
+</launch>
