@@ -13,20 +13,27 @@ then build the package and source the workspace setup file.
 
 ## Running the simulation
 
-Launch the ARIAC world and spawn a P3-DX robot.
+Launch the ARIAC world and spawn a P3-DX robot with fake localization.
 ```
-roslaunch ariac_environment p3dx_in_ariac_world.launch
+roslaunch ariac_environment ariac_p3dx_fakeloc_rviz.launch
 ```
-
+To drive the robot manually using the keyboard, launch (from another terminal):
+```
+roslaunch ariac_environment teleop_keyboard.launch
+```
 ## Development notes
 
-...adding navigation functionality ...
+TODO: add navigation functionality ...
 
 ### Naming conventions
 
-Launch file naming ...
+Launch files shall be named according to the following pattern (values in parentheses are optional):
 ```
-<(gazebo environment name)>_<robot_type>_<(localization)>_<(control)>.launch
+<(gazebo environment name)>_<robot_type>_<(localization)>_<(control)>_<(visualization)>.launch
 ```
-
+e.g.
+```
+ariac_p3dx_fakeloc_rviz.launch
+```
+Launches the Ariac Gazebo environment, with a p3dx model, fake localization, no control and RViz visualization.
 
