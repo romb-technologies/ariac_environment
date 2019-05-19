@@ -5,7 +5,7 @@ import rospy
 import numpy as np
 from gazebo_msgs.msg import ModelState
 
-def move_obstacle(start_position_x, end_position_x, start_position_y, end_position_y, increment):
+def move_obstacle(model_name, start_position_x, end_position_x, start_position_y, end_position_y, increment):
     pub = rospy.Publisher('/gazebo/set_model_state', ModelState, queue_size=10)
     rospy.init_node('move_node', anonymous=True)
     rate = rospy.Rate(10)
@@ -38,7 +38,7 @@ def move_obstacle(start_position_x, end_position_x, start_position_y, end_positi
     start_y = temp_start_y
 
     msg = ModelState()
-    msg.model_name = 'obstacle'
+    msg.model_name = model_name
     msg.pose.position.x = pose_x
     msg.pose.position.y = pose_y
     msg.pose.position.z = 1.25
@@ -62,6 +62,7 @@ if __name__ == '__main__':
         start_y = float(sys.argv[3])
         end_y = float(sys.argv[4])
         increment = float(sys.argv[5])
-        move_obstacle(start_x, end_x, start_y, end_y, increment)
+        model_name = sys.argv[6]
+        move_obstacle(model_name, start_x, end_x, start_y, end_y, increment)
     except rospy.ROSInterruptException:
         pass

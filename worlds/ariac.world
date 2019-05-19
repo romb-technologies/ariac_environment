@@ -224,8 +224,5 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <include>       
-      <uri>model://obstacle</uri>
-    </include>
   </world>
 </sdf>
