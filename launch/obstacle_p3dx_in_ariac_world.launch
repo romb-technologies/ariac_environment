@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find ariac_environment)/launch/upload_pioneer3dx.xml"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+	<param name="publish_frequency" type="double" value="30.0"/>
+	<param name="tf_prefix" type="string" value="pioneer"/>
+  </node>
+  
+  <include file="$(find ariac_environment)/launch/ariac_world.launch"/>
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model"
+        args="-x 9.7 -y 9.6 -urdf -param robot_description -model robot_description" respawn="false" output="screen" />
+
+   
+  <include file="$(find ariac_environment)/launch/upload_actor.xml">
+    <arg name="actor_description" default="actor1"/>
+    <arg name="start_x" default="11.0"/>
+    <arg name="start_y" default="10.0"/>
+    <arg name="end_x" default="13.0"/>
+    <arg name="end_y" default="7.0"/>
+    <arg name="inc" default="0.05"/>
+  </include>
+
+  <include file="$(find ariac_environment)/launch/upload_actor.xml">
+    <arg name="actor_description" default="actor2"/>
+    <arg name="start_x" default="7.0"/>
+    <arg name="start_y" default="13.0"/>
+    <arg name="end_x" default="13.0"/>
+    <arg name="end_y" default="13.0"/>
+    <arg name="inc" default="0.1"/>
+  </include>
+
+  <include file="$(find ariac_environment)/launch/upload_actor.xml">
+    <arg name="actor_description" default="actor3"/>
+    <arg name="start_x" default="7.0"/>
+    <arg name="start_y" default="7.0"/>
+    <arg name="end_x" default="7.0"/>
+    <arg name="end_y" default="10.0"/>
+    <arg name="inc" default="0.08"/>
+  </include>
+
+</launch>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <!-- An actor -->
+  <model name="actor">
+    <pose>11 11 1.25 0 0 0</pose>
+    <link name="link_actor">
+      <gravity>false</gravity>
+      <collision name="collision_actor">
+        <geometry>
+          <mesh>
+            <uri>model://actor/meshes/actor.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual_actor">
+        <geometry>
+          <mesh>
+            <uri>model://actor/meshes/actor.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
