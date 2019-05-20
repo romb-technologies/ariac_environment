@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <launch>
   
-  <arg name="actor_description"/>
+  <arg name="actor_name"/>
   <arg name="start_x"/>
   <arg name="start_y"/>
   <arg name="end_x"/>
   <arg name="end_y"/>
   <arg name="inc"/>
 
-  <param name="$(arg actor_description)" textfile="$(find ariac_environment)/models/actor/model.sdf" />
+  <param name="$(arg actor_name)" textfile="$(find ariac_environment)/models/actor/model.sdf" />
 
-  <node name="$(arg actor_description)" pkg="gazebo_ros" type="spawn_model"
-  	args="-sdf -param $(arg actor_description) -model $(arg actor_description) -x $(arg start_x) -y $(arg start_y) -z 1.25">
+  <node name="$(arg actor_name)" pkg="gazebo_ros" type="spawn_model"
+  	args="-sdf -param $(arg actor_name) -model $(arg actor_name) -x $(arg start_x) -y $(arg start_y) -z 1.25">
   </node>
 
-  <node name="run_$(arg actor_description)" pkg="ariac_environment" type="move_object.py"
-  	args="$(arg start_x) $(arg end_x) $(arg start_y) $(arg end_y) $(arg inc) $(arg actor_description)"/>
+  <node name="run_$(arg actor_name)" pkg="ariac_environment" type="move_object.py"
+  	args="$(arg start_x) $(arg end_x) $(arg start_y) $(arg end_y) $(arg inc) $(arg actor_name)"/>
 
  </launch>
