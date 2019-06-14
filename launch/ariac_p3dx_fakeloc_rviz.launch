@@ -1,5 +1,5 @@
 <launch>
-  <arg name="robot_name" default="pioneer"/>
+  <arg name="robot_name" value="$(env SIMULATED_ROBOT_NAME)"/>
 
   <include file="$(find ariac_environment)/launch/ariac_p3dx.launch"/>
 
