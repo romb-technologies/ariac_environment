@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="robot_name" default="pioneer"/>
+  <arg name="robot_name" value="$(env SIMULATED_ROBOT_NAME)"/>
 
   <node name="teleop_pioneer" pkg="teleop_twist_keyboard"
         type="teleop_twist_keyboard.py" output="screen"

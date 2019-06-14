@@ -1,0 +1,6 @@
+<launch>
+  <arg name="robot_name" value="$(env SIMULATED_ROBOT_NAME)"/>
+  <arg name="bag_name" default=""/>
+  <arg name="saved_bag_path" default="$(find ariac_environment)/bags"/>
+  <node pkg="rosbag" type="record" args="record -o $(arg saved_bag_path)/$(arg bag_name) pioneer/front_laser" name="record" output="screen"/>
+</launch>

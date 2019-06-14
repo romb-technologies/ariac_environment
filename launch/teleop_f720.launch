@@ -1,0 +1,24 @@
+<launch>
+
+  <arg name="robot_name" default="$(env SIMULATED_ROBOT_NAME)"/>
+
+  <!-- Run all nodes in the robot_name namespace -->
+  <!-- This is a pain for single robot systems -->
+  <!-- But saves a lot of headaches in multi-robot setups -->
+
+  <group ns="$(arg robot_name)">
+    <!-- run a joy node to get input from the joystick -->
+    <node pkg="joy" type="joy_node" name="f710"/>
+
+    <!-- Run the teleop node to translate joy messages to twist messages -->
+    <!-- This setup is adapted for the Logitech f710 -->
+    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop">
+      <param name="enable_button" value="6"/>
+      <param name="axis_linear" value="1"/>
+      <param name="axis_angular" value="2"/>
+      <param name="scale_linear" value="2" />
+      <param name="scale_angular" value="2" />
+    </node>
+  </group>
+
+</launch>
